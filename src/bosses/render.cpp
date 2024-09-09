@@ -69,10 +69,10 @@ void Render::render(bool &showFull) {
             std::unique_lock lock(gBossDataSet.mutex());
             ImGui::Text("%d/%d", gBossDataSet.count(), gBossDataSet.total());
         }
-        ImGui::SameLine();
-        if (ImGui::ArrowButton("##bosses_arrow", ImGuiDir_Down)) {
-            showFull = true;
-        }
+//        ImGui::SameLine();
+//        if (ImGui::ArrowButton("##bosses_arrow", ImGuiDir_Down)) {
+//            showFull = true;
+//        }
     } else {
         ImGui::SetNextWindowSize(ImVec2(calculatePos(vp->Size.x, std::abs(width_)), calculatePos(vp->Size.y, std::abs(height_))), ImGuiCond_Always);
         ImGui::Begin("##bosses_window",
@@ -87,11 +87,11 @@ void Render::render(bool &showFull) {
         }
         ImGui::Text("%d/%d", gBossDataSet.count(), gBossDataSet.total());
         auto &style = ImGui::GetStyle();
-        ImGui::SameLine(
-            ImGui::GetWindowWidth() - ImGui::GetFrameHeight() - style.WindowPadding.x - style.FramePadding.x);
-        if (ImGui::ArrowButton("##bosses_arrow", ImGuiDir_Up)) {
-            showFull = false;
-        }
+//        ImGui::SameLine(
+//            ImGui::GetWindowWidth() - ImGui::GetFrameHeight() - style.WindowPadding.x - style.FramePadding.x);
+//        if (ImGui::ArrowButton("##bosses_arrow", ImGuiDir_Up)) {
+//            showFull = false;
+//        }
         ImGui::BeginChild("##bosses_list", ImGui::GetContentRegionAvail());
         const auto &bosses = gBossDataSet.bosses();
         const auto &regions = gBossDataSet.regions();
